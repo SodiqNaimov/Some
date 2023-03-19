@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'coreapp',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,18 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config(
+    cloud_name = "de0fk2tcg",
+    api_key = "781223917766736",
+    api_secret = "HFaIa5rdTR-b-UMiPXnAssbo9Zc"
+)
+#Configure Django app for Heroku
+import django_heroku
+django_heroku.settings(locals())
